@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Travel Services - Garuviafly Tech</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { nunito: ['Nunito','sans-serif'], rubik: ['Rubik','sans-serif'] },
+          colors: { primary: '#6254E7', dark: '#3b3663', body: '#696687' }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=Rubik:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="css/index.css" />
+</head>
+<body class="bg-white text-body text-lg leading-relaxed font-rubik">
+
+  <!-- HEADER -->
+  <header id="site-header" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 scrolled">
+    <div class="max-w-screen-xl mx-auto px-6 h-20 flex items-center justify-between">
+      <a href="index.html" class="font-nunito font-extrabold text-3xl text-dark no-underline tracking-tight">ewe<span class="text-primary">bot</span></a>
+      <nav class="hidden lg:flex">
+        <ul class="flex gap-8 list-none">
+          <li><a href="index.html" class="font-rubik text-sm font-medium text-dark no-underline hover:text-primary transition-colors">Home</a></li>
+          <li><a href="about.html" class="font-rubik text-sm font-medium text-dark no-underline hover:text-primary transition-colors">About</a></li>
+          <li><a href="service.html" class="font-rubik text-sm font-medium text-dark no-underline hover:text-primary transition-colors">Service</a></li>
+          <li><a href="travel-services.html" class="font-rubik text-sm font-medium text-primary no-underline">Travel Services</a></li>
+          <li><a href="blog.html" class="font-rubik text-sm font-medium text-dark no-underline hover:text-primary transition-colors">Blog</a></li>
+        </ul>
+      </nav>
+      <a href="contact.html" class="hidden lg:inline-block bg-primary text-white font-nunito font-bold text-sm px-6 py-2.5 rounded-md hover:bg-purple-700 transition-colors no-underline">Contact Us</a>
+      <button id="hbg" class="lg:hidden flex flex-col gap-1.5 cursor-pointer bg-transparent border-none" aria-label="Menu">
+        <span class="w-6 h-0.5 bg-dark rounded"></span>
+        <span class="w-6 h-0.5 bg-dark rounded"></span>
+        <span class="w-6 h-0.5 bg-dark rounded"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- MOBILE NAV -->
+  <div id="mnav" class="hidden fixed top-20 left-0 w-full bg-white/95 backdrop-blur-md px-6 py-4 border-b border-gray-100 z-40">
+    <ul class="list-none">
+      <li class="border-b border-gray-100"><a href="index.html" class="block py-3.5 text-dark text-base font-medium no-underline">Home</a></li>
+      <li class="border-b border-gray-100"><a href="about.html" class="block py-3.5 text-dark text-base font-medium no-underline">About</a></li>
+      <li class="border-b border-gray-100"><a href="service.html" class="block py-3.5 text-dark text-base font-medium no-underline">Service</a></li>
+      <li class="border-b border-gray-100"><a href="travel-services.html" class="block py-3.5 text-primary text-base font-bold no-underline">Travel Services</a></li>
+      <li class="border-b border-gray-100"><a href="blog.html" class="block py-3.5 text-dark text-base font-medium no-underline">Blog</a></li>
+      <li><a href="contact.html" class="block py-3.5 text-primary font-bold no-underline">Contact Us</a></li>
+    </ul>
+  </div>
+
+  <!-- PAGE HERO -->
+  <section class="pt-36 pb-20 px-6 relative overflow-hidden" style="background:linear-gradient(135deg,#0f0e1a 0%,#0d1f3c 60%,#1a3a6e 100%)">
+    <div class="max-w-screen-lg mx-auto text-center relative z-10">
+      <div class="inline-flex items-center gap-2 bg-blue-500/20 border border-blue-400/40 rounded-full px-4 py-1.5 mb-6">
+        <div class="w-1.5 h-1.5 bg-blue-400 rounded-full"></div>
+        <span class="font-rubik text-xs font-medium text-blue-300 uppercase tracking-widest">Travel Services</span>
+      </div>
+      <h1 class="font-nunito font-black text-white leading-tight mb-6" style="font-size:clamp(36px,5vw,64px)">Explore the World with<br><span class="text-primary">Smart Travel Solutions</span></h1>
+      <p class="text-white/70 text-lg max-w-2xl mx-auto">From flight bookings to complete holiday packages — we make travel seamless, affordable, and unforgettable.</p>
+    </div>
+    <div class="absolute inset-0 opacity-10" style="background-image:radial-gradient(circle at 20% 50%,#3b82f6 0%,transparent 50%),radial-gradient(circle at 80% 20%,#6254E7 0%,transparent 40%)"></div>
+  </section>
+
+  <!-- TRAVEL SERVICES GRID -->
+  <section class="reveal py-24 px-6 bg-white">
+    <div class="max-w-screen-lg mx-auto">
+      <div class="text-center mb-14">
+        <h2 class="font-nunito font-extrabold text-dark" style="font-size:clamp(26px,3vw,38px)">Our Travel Services</h2>
+        <div class="w-14 h-0.5 bg-primary mx-auto mt-4 rounded"></div>
+        <p class="text-body mt-4 max-w-xl mx-auto">Comprehensive travel solutions for individuals, families, and corporate clients.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-7">
+        <div class="bg-white rounded-2xl p-8 border border-[#eeedf8] hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-1.5 hover:border-primary transition-all">
+          <div class="w-14 h-14 mb-5 flex items-center justify-center rounded-xl" style="background:linear-gradient(135deg,#6254E7,#8b80f0)"><i class="fas fa-plane text-white text-xl"></i></div>
+          <h5 class="font-nunito font-extrabold text-[17px] text-dark mb-3">Flight Booking</h5>
+          <p class="text-[15px] leading-relaxed text-body mb-4">Best deals on domestic and international flights. Compare prices and book instantly.</p>
+          <ul class="text-sm text-body flex flex-col gap-1.5 mb-4">
+            <li class="flex items-center gap-2"><i class="fas fa-check text-primary text-xs"></i>Domestic & International</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check text-primary text-xs"></i>Business & Economy Class</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check text-primary text-xs"></i>Group Bookings Available</li>
+          </ul>
+          <a href="contact.html" class="text-primary text-sm font-semibold no-underline hover:underline">Book Now →</a>
+        </div>
+        <div class="bg-white rounded-2xl p-8 border border-[#eeedf8] hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-1.5 hover:border-primary transition-all">
+          <div class="w-14 h-14 mb-5 flex items-center justify-center rounded-xl" style="background:linear-gradient(135deg,#6254E7,#8b80f0)"><i class="fas fa-hotel text-white text-xl"></i></div>
+          <h5 class="font-nunito font-extrabold text-[17px] text-dark mb-3">Hotel Booking</h5>
+          <p class="text-[15px] leading-relaxed text-body mb-4">Handpicked hotels from budget stays to luxury resorts worldwide at the best rates.</p>
+          <ul class="text-sm text-body flex flex-col gap-1.5 mb-4">
+            <li class="flex items-center gap-2"><i class="fas fa-check text-primary text-xs"></i>500,000+ Properties</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check text-primary text-xs"></i>Free Cancellation Options</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check text-primary text-xs"></i>Best Price Guarantee</li>
+          </ul>
+          <a href="contact.html" class="text-primary text-sm font-semibold no-underline hover:underline">Book Now →</a>
+        </div>
+        <div class="bg-white rounded-2xl p-8 border border-[#eeedf8] hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-1.5 hover:border-primary transition-all">
+          <div class="w-14 h-14 mb-5 flex items-center justify-center rounded-xl" style="background:linear-gradient(135deg,#6254E7,#8b80f0)"><i class="fas fa-umbrella-beach text-white text-xl"></i></div>
+          <h5 class="font-nunito font-extrabold text-[17px] text-dark mb-3">Holiday Packages</h5>
+          <p class="text-[15px] leading-relaxed text-body mb-4">All-inclusive holiday packages with flights, hotels, and activities bundled together.</p>
+          <ul class="text-sm text-body flex flex-col gap-1.5 mb-4">
+            <li class="flex items-center gap-2"><i class="fas fa-check text-primary text-xs"></i>Customizable Itineraries</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check text-primary text-xs"></i>Family & Honeymoon Packages</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check text-primary text-xs"></i>24/7 Travel Support</li>
+          </ul>
+          <a href="contact.html" class="text-primary text-sm font-semibold no-underline hover:underline">Explore Packages →</a>
+        </div>
+        <div class="bg-white rounded-2xl p-8 border border-[#eeedf8] hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-1.5 hover:border-primary transition-all">
+          <div class="w-14 h-14 mb-5 flex items-center justify-center rounded-xl" style="background:linear-gradient(135deg,#6254E7,#8b80f0)"><i class="fas fa-passport text-white text-xl"></i></div>
+          <h5 class="font-nunito font-extrabold text-[17px] text-dark mb-3">Visa Assistance</h5>
+          <p class="text-[15px] leading-relaxed text-body mb-4">Expert visa guidance and documentation support for hassle-free international travel.</p>
+          <ul class="text-sm text-body flex flex-col gap-1.5 mb-4">
+            <li class="flex items-center gap-2"><i class="fas fa-check text-primary text-xs"></i>Tourist & Business Visas</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check text-primary text-xs"></i>Document Checklist</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check text-primary text-xs"></i>Fast Processing</li>
+          </ul>
+          <a href="contact.html" class="text-primary text-sm font-semibold no-underline hover:underline">Get Help →</a>
+        </div>
+        <div class="bg-white rounded-2xl p-8 border border-[#eeedf8] hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-1.5 hover:border-primary transition-all">
+          <div class="w-14 h-14 mb-5 flex items-center justify-center rounded-xl" style="background:linear-gradient(135deg,#6254E7,#8b80f0)"><i class="fas fa-car text-white text-xl"></i></div>
+          <h5 class="font-nunito font-extrabold text-[17px] text-dark mb-3">Car Rentals & Transfers</h5>
+          <p class="text-[15px] leading-relaxed text-body mb-4">Comfortable airport transfers and car rentals available in 100+ destinations worldwide.</p>
+          <ul class="text-sm text-body flex flex-col gap-1.5 mb-4">
+            <li class="flex items-center gap-2"><i class="fas fa-check text-primary text-xs"></i>Airport Pickup & Drop</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check text-primary text-xs"></i>Chauffeur Services</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check text-primary text-xs"></i>Self-Drive Options</li>
+          </ul>
+          <a href="contact.html" class="text-primary text-sm font-semibold no-underline hover:underline">Book Transfer →</a>
+        </div>
+        <div class="bg-white rounded-2xl p-8 border border-[#eeedf8] hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-1.5 hover:border-primary transition-all">
+          <div class="w-14 h-14 mb-5 flex items-center justify-center rounded-xl" style="background:linear-gradient(135deg,#6254E7,#8b80f0)"><i class="fas fa-briefcase text-white text-xl"></i></div>
+          <h5 class="font-nunito font-extrabold text-[17px] text-dark mb-3">Corporate Travel</h5>
+          <p class="text-[15px] leading-relaxed text-body mb-4">Managed corporate travel solutions with dedicated account managers and expense tracking.</p>
+          <ul class="text-sm text-body flex flex-col gap-1.5 mb-4">
+            <li class="flex items-center gap-2"><i class="fas fa-check text-primary text-xs"></i>Dedicated Account Manager</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check text-primary text-xs"></i>Expense Management</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check text-primary text-xs"></i>Priority Support</li>
+          </ul>
+          <a href="contact.html" class="text-primary text-sm font-semibold no-underline hover:underline">Learn More →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- POPULAR DESTINATIONS -->
+  <section class="reveal py-20 px-6" style="background:linear-gradient(135deg,#f8f7ff 0%,#fff 100%)">
+    <div class="max-w-screen-lg mx-auto">
+      <div class="text-center mb-14">
+        <h2 class="font-nunito font-extrabold text-dark" style="font-size:clamp(26px,3vw,38px)">Popular Destinations</h2>
+        <div class="w-14 h-0.5 bg-primary mx-auto mt-4 rounded"></div>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-5">
+        <div class="relative rounded-2xl overflow-hidden group cursor-pointer h-48" style="background:linear-gradient(135deg,#1a1a2e,#16213e)">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+          <div class="absolute bottom-4 left-4 text-white">
+            <div class="font-nunito font-extrabold text-lg">Dubai</div>
+            <div class="text-xs text-white/70">UAE</div>
+          </div>
+          <div class="absolute top-4 right-4 bg-primary/80 text-white text-xs font-bold px-2 py-1 rounded-full">Hot Deal</div>
+        </div>
+        <div class="relative rounded-2xl overflow-hidden group cursor-pointer h-48" style="background:linear-gradient(135deg,#0f3460,#533483)">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+          <div class="absolute bottom-4 left-4 text-white">
+            <div class="font-nunito font-extrabold text-lg">Paris</div>
+            <div class="text-xs text-white/70">France</div>
+          </div>
+        </div>
+        <div class="relative rounded-2xl overflow-hidden group cursor-pointer h-48" style="background:linear-gradient(135deg,#1b4332,#2d6a4f)">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+          <div class="absolute bottom-4 left-4 text-white">
+            <div class="font-nunito font-extrabold text-lg">Bali</div>
+            <div class="text-xs text-white/70">Indonesia</div>
+          </div>
+          <div class="absolute top-4 right-4 bg-primary/80 text-white text-xs font-bold px-2 py-1 rounded-full">Popular</div>
+        </div>
+        <div class="relative rounded-2xl overflow-hidden group cursor-pointer h-48" style="background:linear-gradient(135deg,#7b2d8b,#c2185b)">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+          <div class="absolute bottom-4 left-4 text-white">
+            <div class="font-nunito font-extrabold text-lg">Tokyo</div>
+            <div class="text-xs text-white/70">Japan</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="reveal py-20 px-6 bg-cover bg-center relative" style="background-image:url('https://ewebotwp.com/wp-content/uploads/2026/03/home22_bg2.webp')">
+    <div class="max-w-screen-xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-10 text-center">
+      <div>
+        <div class="font-nunito text-5xl font-light text-[#aee6ff] leading-none mb-3">50k+</div>
+        <p class="text-white text-sm">Happy Travelers</p>
+      </div>
+      <div>
+        <div class="font-nunito text-5xl font-light text-[#aee6ff] leading-none mb-3">100+</div>
+        <p class="text-white text-sm">Destinations</p>
+      </div>
+      <div>
+        <div class="font-nunito text-5xl font-light text-[#aee6ff] leading-none mb-3">10yr</div>
+        <p class="text-white text-sm">Industry Experience</p>
+      </div>
+      <div>
+        <div class="font-nunito text-5xl font-light text-[#aee6ff] leading-none mb-3">98%</div>
+        <p class="text-white text-sm">Satisfaction Rate</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="reveal py-20 px-6" style="background-color:#0b0d18">
+    <div class="max-w-screen-lg mx-auto text-center">
+      <h2 class="font-nunito font-black text-white mb-6" style="font-size:clamp(28px,4vw,48px)">Ready to Plan Your Next Trip?</h2>
+      <p class="text-white/60 text-lg mb-8 max-w-xl mx-auto">Contact our travel experts today and get a personalized travel plan within 24 hours.</p>
+      <a href="contact.html" class="inline-flex items-center gap-2 bg-gradient-to-r from-blue-200 to-purple-300 text-dark font-bold font-nunito px-8 py-4 rounded-full text-sm hover:shadow-lg hover:-translate-y-0.5 transition-all no-underline">Plan My Trip <span class="text-base">↗</span></a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-[#181622] pt-16 pb-8 px-6 text-white border-t border-white/5">
+    <div class="max-w-screen-xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-4 gap-12 mb-12">
+        <div class="lg:col-span-2">
+          <h2 class="font-nunito font-black text-[#aee6ff] leading-none mb-6" style="font-size:clamp(40px,6vw,72px)">LET'S TALK</h2>
+          <a href="contact.html" class="inline-flex items-center gap-2 bg-gradient-to-r from-blue-200 to-purple-300 text-dark font-bold font-nunito px-7 py-3.5 rounded-full text-sm hover:shadow-lg hover:-translate-y-0.5 transition-all no-underline">Get a Quote <span class="text-base">↗</span></a>
+        </div>
+        <div>
+          <h5 class="font-nunito font-extrabold text-lg text-white mb-6">Quick Links</h5>
+          <ul class="list-none flex flex-col gap-3">
+            <li><a href="index.html" class="text-white/60 no-underline text-[15px] hover:text-white transition-colors">Home</a></li>
+            <li><a href="about.html" class="text-white/60 no-underline text-[15px] hover:text-white transition-colors">About Us</a></li>
+            <li><a href="service.html" class="text-white/60 no-underline text-[15px] hover:text-white transition-colors">Services</a></li>
+            <li><a href="blog.html" class="text-white/60 no-underline text-[15px] hover:text-white transition-colors">Blog</a></li>
+            <li><a href="contact.html" class="text-white/60 no-underline text-[15px] hover:text-white transition-colors">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="font-nunito font-extrabold text-lg text-white mb-6">Contact</h5>
+          <ul class="list-none flex flex-col gap-3">
+            <li class="text-white/60 text-[15px]"><i class="fas fa-envelope text-primary mr-2"></i>hello@mysite.com</li>
+            <li class="text-white/60 text-[15px]"><i class="fas fa-phone text-primary mr-2"></i>8 800 2345 234</li>
+            <li class="text-white/60 text-[15px]"><i class="fas fa-map-marker-alt text-primary mr-2"></i>27 Division St, New York</li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-white/5 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+        <p class="text-white/40 text-xs">© 2026 Garuviafly Tech. All rights reserved.</p>
+        <a href="index.html" class="font-nunito font-extrabold text-2xl text-white no-underline">ewe<span class="text-primary">bot</span></a>
+      </div>
+    </div>
+  </footer>
+
+  <button id="btt" class="fixed bottom-8 right-8 w-11 h-11 bg-primary text-white rounded-lg flex items-center justify-center cursor-pointer z-50 opacity-0 pointer-events-none border-none text-lg hover:bg-purple-700 hover:-translate-y-1 transition-all" title="Back to top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    document.getElementById('hbg').addEventListener('click', function(){ document.getElementById('mnav').classList.toggle('hidden'); });
+    var btt = document.getElementById('btt');
+    window.addEventListener('scroll', function(){ btt.style.opacity = window.scrollY > 400 ? '1' : '0'; btt.style.pointerEvents = window.scrollY > 400 ? 'auto' : 'none'; });
+    btt.addEventListener('click', function(){ window.scrollTo({top:0,behavior:'smooth'}); });
+    document.querySelectorAll('.reveal').forEach(function(el){ new IntersectionObserver(function(e){ if(e[0].isIntersecting) e[0].target.classList.add('visible'); },{threshold:0.1}).observe(el); });
+  </script>
+</body>
+</html>

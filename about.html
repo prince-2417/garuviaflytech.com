@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>About Us - Garuviafly Tech</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { nunito: ['Nunito','sans-serif'], rubik: ['Rubik','sans-serif'] },
+          colors: { primary: '#6254E7', dark: '#3b3663', body: '#696687' }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=Rubik:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="css/index.css" />
+</head>
+<body class="bg-white text-body text-lg leading-relaxed font-rubik">
+
+  <!-- HEADER -->
+  <header id="site-header" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 scrolled">
+    <div class="max-w-screen-xl mx-auto px-6 h-20 flex items-center justify-between">
+      <a href="index.html" class="font-nunito font-extrabold text-3xl text-dark no-underline tracking-tight">ewe<span class="text-primary">bot</span></a>
+      <nav class="hidden lg:flex">
+        <ul class="flex gap-8 list-none">
+          <li><a href="index.html" class="font-rubik text-sm font-medium text-dark no-underline hover:text-primary transition-colors">Home</a></li>
+          <li><a href="about.html" class="font-rubik text-sm font-medium text-primary no-underline">About</a></li>
+          <li class="relative group">
+            <a href="service.html" class="font-rubik text-sm font-medium text-dark no-underline hover:text-primary transition-colors flex items-center gap-1">
+              Service <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+            </a>
+          </li>
+          <li><a href="travel-services.html" class="font-rubik text-sm font-medium text-dark no-underline hover:text-primary transition-colors">Travel Services</a></li>
+          <li><a href="blog.html" class="font-rubik text-sm font-medium text-dark no-underline hover:text-primary transition-colors">Blog</a></li>
+        </ul>
+      </nav>
+      <a href="contact.html" class="hidden lg:inline-block bg-primary text-white font-nunito font-bold text-sm px-6 py-2.5 rounded-md hover:bg-purple-700 transition-colors no-underline">Contact Us</a>
+      <button id="hbg" class="lg:hidden flex flex-col gap-1.5 cursor-pointer bg-transparent border-none" aria-label="Menu">
+        <span class="w-6 h-0.5 bg-dark rounded"></span>
+        <span class="w-6 h-0.5 bg-dark rounded"></span>
+        <span class="w-6 h-0.5 bg-dark rounded"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- MOBILE NAV -->
+  <div id="mnav" class="hidden fixed top-20 left-0 w-full bg-white/95 backdrop-blur-md px-6 py-4 border-b border-gray-100 z-40">
+    <ul class="list-none">
+      <li class="border-b border-gray-100"><a href="index.html" class="block py-3.5 text-dark text-base font-medium no-underline">Home</a></li>
+      <li class="border-b border-gray-100"><a href="about.html" class="block py-3.5 text-primary text-base font-bold no-underline">About</a></li>
+      <li class="border-b border-gray-100"><a href="service.html" class="block py-3.5 text-dark text-base font-medium no-underline">Service</a></li>
+      <li class="border-b border-gray-100"><a href="travel-services.html" class="block py-3.5 text-dark text-base font-medium no-underline">Travel Services</a></li>
+      <li class="border-b border-gray-100"><a href="blog.html" class="block py-3.5 text-dark text-base font-medium no-underline">Blog</a></li>
+      <li><a href="contact.html" class="block py-3.5 text-primary font-bold no-underline">Contact Us</a></li>
+    </ul>
+  </div>
+
+  <!-- PAGE HERO -->
+  <section id="about-hero" class="relative overflow-hidden flex items-center justify-center" style="min-height:520px; background:#0f0e1a">
+
+    <!-- Particle canvas -->
+    <canvas id="about-canvas" class="absolute inset-0 w-full h-full" style="z-index:1"></canvas>
+
+    <!-- Animated gradient orbs -->
+    <div class="orb orb-1" style="position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(98,84,231,.35) 0%,transparent 70%);top:-120px;left:-100px;z-index:2;animation:orbFloat1 8s ease-in-out infinite"></div>
+    <div class="orb orb-2" style="position:absolute;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(167,139,250,.25) 0%,transparent 70%);bottom:-80px;right:-80px;z-index:2;animation:orbFloat2 10s ease-in-out infinite"></div>
+    <div class="orb orb-3" style="position:absolute;width:250px;height:250px;border-radius:50%;background:radial-gradient(circle,rgba(56,189,248,.15) 0%,transparent 70%);top:40%;right:20%;z-index:2;animation:orbFloat1 6s ease-in-out infinite reverse"></div>
+
+    <!-- Rotating ring decorations -->
+    <div style="position:absolute;width:340px;height:340px;border:1px solid rgba(98,84,231,.2);border-radius:50%;top:50%;left:50%;transform:translate(-50%,-50%);z-index:2;animation:spinSlow 20s linear infinite"></div>
+    <div style="position:absolute;width:500px;height:500px;border:1px dashed rgba(98,84,231,.1);border-radius:50%;top:50%;left:50%;transform:translate(-50%,-50%);z-index:2;animation:spinSlow 35s linear infinite reverse"></div>
+
+    <!-- Floating tech pills -->
+    <div class="hero-pill" style="position:absolute;top:22%;left:6%;z-index:4;animation:floatY 4s ease-in-out infinite">
+      <div style="background:rgba(98,84,231,.15);border:1px solid rgba(98,84,231,.35);backdrop-filter:blur(8px);border-radius:999px;padding:8px 16px;display:flex;align-items:center;gap:8px">
+        <i class="fas fa-brain" style="color:#a78bfa;font-size:13px"></i>
+        <span style="font-family:Rubik,sans-serif;font-size:12px;color:#c4b5fd;font-weight:500">AI Powered</span>
+      </div>
+    </div>
+    <div class="hero-pill" style="position:absolute;top:30%;right:6%;z-index:4;animation:floatY 5s ease-in-out infinite .8s">
+      <div style="background:rgba(56,189,248,.1);border:1px solid rgba(56,189,248,.3);backdrop-filter:blur(8px);border-radius:999px;padding:8px 16px;display:flex;align-items:center;gap:8px">
+        <i class="fas fa-chart-line" style="color:#7dd3fc;font-size:13px"></i>
+        <span style="font-family:Rubik,sans-serif;font-size:12px;color:#bae6fd;font-weight:500">Data Driven</span>
+      </div>
+    </div>
+    <div class="hero-pill" style="position:absolute;bottom:22%;left:8%;z-index:4;animation:floatY 6s ease-in-out infinite 1.2s">
+      <div style="background:rgba(52,211,153,.1);border:1px solid rgba(52,211,153,.3);backdrop-filter:blur(8px);border-radius:999px;padding:8px 16px;display:flex;align-items:center;gap:8px">
+        <i class="fas fa-globe" style="color:#6ee7b7;font-size:13px"></i>
+        <span style="font-family:Rubik,sans-serif;font-size:12px;color:#a7f3d0;font-weight:500">Global Reach</span>
+      </div>
+    </div>
+    <div class="hero-pill" style="position:absolute;bottom:28%;right:7%;z-index:4;animation:floatY 4.5s ease-in-out infinite .4s">
+      <div style="background:rgba(251,146,60,.1);border:1px solid rgba(251,146,60,.3);backdrop-filter:blur(8px);border-radius:999px;padding:8px 16px;display:flex;align-items:center;gap:8px">
+        <i class="fas fa-rocket" style="color:#fdba74;font-size:13px"></i>
+        <span style="font-family:Rubik,sans-serif;font-size:12px;color:#fed7aa;font-weight:500">Fast Results</span>
+      </div>
+    </div>
+
+    <!-- Main content -->
+    <div class="relative max-w-screen-lg mx-auto px-6 pt-36 pb-20 text-center" style="z-index:5">
+      <div class="h-badge" style="opacity:0;animation:fadeUp .7s ease forwards .1s">
+        <div class="inline-flex items-center gap-2 bg-primary/20 border border-primary/40 rounded-full px-4 py-1.5 mb-6">
+          <div style="width:7px;height:7px;background:#6254E7;border-radius:50%;animation:pdotAnim 2s infinite"></div>
+          <span class="font-rubik text-xs font-medium text-purple-300 uppercase tracking-widest">About Us</span>
+        </div>
+      </div>
+      <h1 class="h-title font-nunito font-black text-white leading-tight mb-6" style="font-size:clamp(36px,5vw,64px);opacity:0;animation:fadeUp .7s ease forwards .3s">
+        We Are a Next-Gen<br><span style="color:#6254E7">AI-Powered</span> Agency
+      </h1>
+      <p class="h-sub" style="color:rgba(255,255,255,.65);font-size:1.1rem;max-width:600px;margin:0 auto 2rem;opacity:0;animation:fadeUp .7s ease forwards .55s">
+        Helping businesses grow smarter with AI-driven SEO, digital marketing, and cutting-edge web solutions.
+      </p>
+      <!-- Stat chips -->
+      <div class="h-chips" style="display:flex;justify-content:center;gap:16px;flex-wrap:wrap;opacity:0;animation:fadeUp .7s ease forwards .75s">
+        <div style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(10px);border-radius:14px;padding:14px 24px;text-align:center">
+          <div style="font-family:Nunito,sans-serif;font-weight:900;font-size:1.6rem;color:#fff;line-height:1">64k<span style="font-size:1rem;color:rgba(255,255,255,.6)">+</span></div>
+          <div style="font-size:11px;color:rgba(255,255,255,.5);margin-top:4px">Happy Clients</div>
+        </div>
+        <div style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(10px);border-radius:14px;padding:14px 24px;text-align:center">
+          <div style="font-family:Nunito,sans-serif;font-weight:900;font-size:1.6rem;color:#fff;line-height:1">10<span style="font-size:1rem;color:rgba(255,255,255,.6)">yr</span></div>
+          <div style="font-size:11px;color:rgba(255,255,255,.5);margin-top:4px">Experience</div>
+        </div>
+        <div style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(10px);border-radius:14px;padding:14px 24px;text-align:center">
+          <div style="font-family:Nunito,sans-serif;font-weight:900;font-size:1.6rem;color:#fff;line-height:1">98<span style="font-size:1rem;color:rgba(255,255,255,.6)">%</span></div>
+          <div style="font-size:11px;color:rgba(255,255,255,.5);margin-top:4px">Satisfaction</div>
+        </div>
+        <div style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(10px);border-radius:14px;padding:14px 24px;text-align:center">
+          <div style="font-family:Nunito,sans-serif;font-weight:900;font-size:1.6rem;color:#fff;line-height:1">50<span style="font-size:1rem;color:rgba(255,255,255,.6)">+</span></div>
+          <div style="font-size:11px;color:rgba(255,255,255,.5);margin-top:4px">Countries</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div style="position:absolute;bottom:24px;left:50%;transform:translateX(-50%);z-index:5;display:flex;flex-direction:column;align-items:center;gap:6px;opacity:.5;animation:floatY 2s ease-in-out infinite">
+      <span style="font-size:10px;color:rgba(255,255,255,.5);letter-spacing:.15em;text-transform:uppercase">Scroll</span>
+      <div style="width:1px;height:36px;background:linear-gradient(to bottom,rgba(255,255,255,.5),transparent)"></div>
+    </div>
+
+  </section>
+
+  <style>
+    @keyframes fadeUp   { from{opacity:0;transform:translateY(28px)} to{opacity:1;transform:translateY(0)} }
+    @keyframes orbFloat1{ 0%,100%{transform:translateY(0) scale(1)} 50%{transform:translateY(-30px) scale(1.05)} }
+    @keyframes orbFloat2{ 0%,100%{transform:translateY(0) scale(1)} 50%{transform:translateY(25px) scale(.95)} }
+    @keyframes floatY   { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
+    @keyframes spinSlow { from{transform:translate(-50%,-50%) rotate(0deg)} to{transform:translate(-50%,-50%) rotate(360deg)} }
+    @keyframes pdotAnim { 0%,100%{transform:scale(1);opacity:1} 50%{transform:scale(1.5);opacity:.6} }
+  </style>
+
+  <script>
+  (function(){
+    var cv = document.getElementById('about-canvas');
+    var ctx = cv.getContext('2d');
+    var W, H, balls = [];
+    var R = 5, dl = 200;
+    function resize(){ W = cv.width = cv.parentElement.offsetWidth; H = cv.height = cv.parentElement.offsetHeight; }
+    function rn(a,b){ return Math.random()*(b-a)+a; }
+    function mkBall(){
+      return { x:rn(0,W), y:rn(0,H), vx:rn(-.4,.4), vy:rn(-.4,.4), alpha:rn(.3,.8), phase:rn(0,10) };
+    }
+    function draw(){
+      ctx.clearRect(0,0,W,H);
+      balls.forEach(function(b){
+        b.x+=b.vx; b.y+=b.vy; b.phase+=.015; b.alpha=.3+Math.abs(Math.sin(b.phase))*.5;
+        if(b.x<0||b.x>W) b.vx*=-1;
+        if(b.y<0||b.y>H) b.vy*=-1;
+        ctx.beginPath(); ctx.arc(b.x,b.y,R,0,Math.PI*2);
+        ctx.fillStyle='rgba(167,139,250,'+b.alpha+')';
+        ctx.fill();
+      });
+      for(var i=0;i<balls.length;i++){
+        for(var j=i+1;j<balls.length;j++){
+          var dx=balls[i].x-balls[j].x, dy=balls[i].y-balls[j].y;
+          var dist=Math.sqrt(dx*dx+dy*dy);
+          if(dist<dl){
+            ctx.beginPath(); ctx.moveTo(balls[i].x,balls[i].y); ctx.lineTo(balls[j].x,balls[j].y);
+            ctx.strokeStyle='rgba(98,84,231,'+(1-dist/dl)*.25+')';
+            ctx.lineWidth=.8; ctx.stroke();
+          }
+        }
+      }
+      requestAnimationFrame(draw);
+    }
+    window.addEventListener('resize', resize);
+    resize();
+    for(var i=0;i<28;i++) balls.push(mkBall());
+    draw();
+  })();
+  </script>
+
+  <!-- WHO WE ARE -->
+  <section class="reveal py-24 px-6 bg-white">
+    <div class="max-w-screen-lg mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+      <div>
+        <div class="font-rubik text-sm font-medium text-primary uppercase tracking-widest mb-4">Our Story</div>
+        <h2 class="font-nunito font-extrabold text-dark leading-snug mb-6" style="font-size:clamp(24px,2.5vw,38px)">Building the Future of <span class="grad-text">Digital Intelligence</span></h2>
+        <p class="text-[17px] leading-relaxed text-body mb-5">Founded with a vision to transform how businesses compete online, we combine artificial intelligence with deep marketing expertise to deliver results that matter.</p>
+        <p class="text-[17px] leading-relaxed text-body mb-8">Over 10 years, we've helped 64,000+ clients across 50+ countries achieve measurable growth through smart, data-driven strategies.</p>
+        <a href="contact.html" class="inline-flex items-center gap-2 bg-primary text-white font-nunito font-bold text-sm px-7 py-3.5 rounded-lg hover:bg-purple-700 hover:-translate-y-0.5 transition-all no-underline">Get Started <i class="fas fa-arrow-right text-xs"></i></a>
+      </div>
+      <div class="grid grid-cols-2 gap-5">
+        <div class="bg-[#f6f5fa] rounded-2xl p-7 text-center">
+          <div class="font-nunito font-black text-4xl text-primary mb-2">64k+</div>
+          <div class="text-sm font-semibold text-dark">Happy Clients</div>
+        </div>
+        <div class="bg-[#f6f5fa] rounded-2xl p-7 text-center">
+          <div class="font-nunito font-black text-4xl text-primary mb-2">10yr</div>
+          <div class="text-sm font-semibold text-dark">Experience</div>
+        </div>
+        <div class="bg-[#f6f5fa] rounded-2xl p-7 text-center">
+          <div class="font-nunito font-black text-4xl text-primary mb-2">98%</div>
+          <div class="text-sm font-semibold text-dark">Satisfaction Rate</div>
+        </div>
+        <div class="bg-[#f6f5fa] rounded-2xl p-7 text-center">
+          <div class="font-nunito font-black text-4xl text-primary mb-2">50+</div>
+          <div class="text-sm font-semibold text-dark">Countries Served</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEXT + IMAGE SECTION 1: image right -->
+  <section class="reveal py-24 px-6" style="background:linear-gradient(135deg,#f8f7ff 0%,#fff 100%)">
+    <div class="max-w-screen-lg mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+      <!-- Text Left -->
+      <div>
+        <div class="font-rubik text-sm font-medium text-primary uppercase tracking-widest mb-4">What We Do</div>
+        <h2 class="font-nunito font-extrabold text-dark leading-snug mb-6" style="font-size:clamp(24px,2.5vw,38px)">We Turn Data Into <span class="grad-text">Powerful Results</span></h2>
+        <p class="text-[17px] leading-relaxed text-body mb-5">Our team of AI specialists and digital marketers work together to craft strategies that don't just look good on paper — they deliver real, measurable business growth.</p>
+        <p class="text-[17px] leading-relaxed text-body mb-8">From keyword research powered by machine learning to automated reporting dashboards, every tool we use is designed to give you a competitive edge.</p>
+        <div class="flex flex-col gap-4">
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+              <i class="fas fa-robot text-primary text-sm"></i>
+            </div>
+            <div>
+              <h6 class="font-nunito font-extrabold text-dark text-base mb-1">AI-Driven Strategy</h6>
+              <p class="text-[15px] text-body leading-relaxed">We use machine learning models to identify the highest-impact opportunities for your business.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+              <i class="fas fa-chart-pie text-primary text-sm"></i>
+            </div>
+            <div>
+              <h6 class="font-nunito font-extrabold text-dark text-base mb-1">Real-Time Analytics</h6>
+              <p class="text-[15px] text-body leading-relaxed">Live dashboards and weekly reports keep you fully informed on every campaign's performance.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+              <i class="fas fa-users-cog text-primary text-sm"></i>
+            </div>
+            <div>
+              <h6 class="font-nunito font-extrabold text-dark text-base mb-1">Dedicated Team</h6>
+              <p class="text-[15px] text-body leading-relaxed">A dedicated account manager and specialist team assigned to your project from day one.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Image Right -->
+      <div class="relative">
+        <div class="rounded-3xl overflow-hidden" style="background:linear-gradient(135deg,#6254E7 0%,#a78bfa 50%,#1a1730 100%); min-height:420px; display:flex; align-items:center; justify-content:center;">
+          <div class="text-center px-10 py-14">
+            <i class="fas fa-brain text-white/20" style="font-size:120px"></i>
+            <p class="text-white/50 text-sm mt-4 font-rubik">[ Replace with your image ]</p>
+          </div>
+        </div>
+        <!-- Floating badge top-left -->
+        <div class="absolute -top-5 -left-5 bg-white rounded-2xl shadow-xl px-5 py-4 flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center">
+            <i class="fas fa-award text-white text-sm"></i>
+          </div>
+          <div>
+            <div class="font-nunito font-extrabold text-dark text-sm">Top Rated Agency</div>
+            <div class="text-xs text-body">10+ Years Experience</div>
+          </div>
+        </div>
+        <!-- Floating badge bottom-right -->
+        <div class="absolute -bottom-5 -right-5 bg-white rounded-2xl shadow-xl px-5 py-4 flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-green-500 flex items-center justify-center">
+            <i class="fas fa-check text-white text-sm"></i>
+          </div>
+          <div>
+            <div class="font-nunito font-extrabold text-dark text-sm">98% Success Rate</div>
+            <div class="text-xs text-body">Across all campaigns</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- TEXT + IMAGE SECTION 2: image left -->
+  <section class="reveal py-24 px-6 bg-white">
+    <div class="max-w-screen-lg mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+      <!-- Image Left -->
+      <div class="relative order-2 lg:order-1">
+        <div class="rounded-3xl overflow-hidden" style="background:linear-gradient(135deg,#0f0e1a 0%,#1a1730 50%,#6254E7 100%); min-height:420px; display:flex; align-items:center; justify-content:center;">
+          <div class="text-center px-10 py-14">
+            <i class="fas fa-rocket text-white/20" style="font-size:120px"></i>
+            <p class="text-white/50 text-sm mt-4 font-rubik">[ Replace with your image ]</p>
+          </div>
+        </div>
+        <!-- Floating stat card -->
+        <div class="absolute -bottom-5 -left-5 bg-white rounded-2xl shadow-xl px-6 py-4">
+          <div class="font-nunito font-black text-3xl text-primary">64k+</div>
+          <div class="text-xs text-body font-medium">Happy Clients Worldwide</div>
+        </div>
+        <!-- Floating icon card -->
+        <div class="absolute -top-5 -right-5 bg-primary rounded-2xl shadow-xl px-5 py-4 flex items-center gap-3">
+          <i class="fas fa-globe text-white text-xl"></i>
+          <div>
+            <div class="font-nunito font-extrabold text-white text-sm">50+ Countries</div>
+            <div class="text-xs text-white/70">Global Reach</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Text Right -->
+      <div class="order-1 lg:order-2">
+        <div class="font-rubik text-sm font-medium text-primary uppercase tracking-widest mb-4">Why Choose Us</div>
+        <h2 class="font-nunito font-extrabold text-dark leading-snug mb-6" style="font-size:clamp(24px,2.5vw,38px)">Your Growth Is Our <span class="grad-text">Top Priority</span></h2>
+        <p class="text-[17px] leading-relaxed text-body mb-5">We don't believe in one-size-fits-all solutions. Every strategy we build is custom-tailored to your industry, audience, and business goals.</p>
+        <p class="text-[17px] leading-relaxed text-body mb-8">Our transparent reporting, proactive communication, and relentless focus on ROI make us the partner businesses trust for long-term digital success.</p>
+        <div class="grid grid-cols-2 gap-4">
+          <div class="bg-[#f6f5fa] rounded-xl p-5">
+            <i class="fas fa-shield-alt text-primary text-xl mb-3 block"></i>
+            <h6 class="font-nunito font-extrabold text-dark text-sm mb-1">Transparent Reporting</h6>
+            <p class="text-xs text-body leading-relaxed">Full visibility into every metric that matters to your business.</p>
+          </div>
+          <div class="bg-[#f6f5fa] rounded-xl p-5">
+            <i class="fas fa-headset text-primary text-xl mb-3 block"></i>
+            <h6 class="font-nunito font-extrabold text-dark text-sm mb-1">24/7 Support</h6>
+            <p class="text-xs text-body leading-relaxed">Our team is always available to answer questions and resolve issues fast.</p>
+          </div>
+          <div class="bg-[#f6f5fa] rounded-xl p-5">
+            <i class="fas fa-lightbulb text-primary text-xl mb-3 block"></i>
+            <h6 class="font-nunito font-extrabold text-dark text-sm mb-1">Innovative Approach</h6>
+            <p class="text-xs text-body leading-relaxed">We stay ahead of algorithm changes and industry trends so you don't have to.</p>
+          </div>
+          <div class="bg-[#f6f5fa] rounded-xl p-5">
+            <i class="fas fa-dollar-sign text-primary text-xl mb-3 block"></i>
+            <h6 class="font-nunito font-extrabold text-dark text-sm mb-1">ROI Focused</h6>
+            <p class="text-xs text-body leading-relaxed">Every decision is made with your return on investment as the primary goal.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- MISSION & VALUES -->
+  <section class="reveal py-20 px-6" style="background:linear-gradient(135deg,#f8f7ff 0%,#fff 100%)">
+    <div class="max-w-screen-lg mx-auto">
+      <div class="text-center mb-14">
+        <h2 class="font-nunito font-extrabold text-dark" style="font-size:clamp(26px,3vw,38px)">Our Mission & Values</h2>
+        <div class="w-14 h-0.5 bg-primary mx-auto mt-4 rounded"></div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-7">
+        <div class="bg-white rounded-2xl p-9 border border-[#eeedf8] hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-1.5 hover:border-primary transition-all text-center">
+          <div class="w-16 h-16 mx-auto mb-5 flex items-center justify-center rounded-2xl" style="background:linear-gradient(135deg,#6254E7,#8b80f0)">
+            <i class="fas fa-bullseye text-white text-2xl"></i>
+          </div>
+          <h5 class="font-nunito font-extrabold text-[17px] text-dark mb-3">Our Mission</h5>
+          <p class="text-[15px] leading-relaxed text-body">To empower businesses with AI-driven digital solutions that deliver measurable, sustainable growth.</p>
+        </div>
+        <div class="bg-white rounded-2xl p-9 border border-[#eeedf8] hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-1.5 hover:border-primary transition-all text-center">
+          <div class="w-16 h-16 mx-auto mb-5 flex items-center justify-center rounded-2xl" style="background:linear-gradient(135deg,#6254E7,#8b80f0)">
+            <i class="fas fa-eye text-white text-2xl"></i>
+          </div>
+          <h5 class="font-nunito font-extrabold text-[17px] text-dark mb-3">Our Vision</h5>
+          <p class="text-[15px] leading-relaxed text-body">To be the world's most trusted AI-powered digital agency, setting new standards in innovation and results.</p>
+        </div>
+        <div class="bg-white rounded-2xl p-9 border border-[#eeedf8] hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-1.5 hover:border-primary transition-all text-center">
+          <div class="w-16 h-16 mx-auto mb-5 flex items-center justify-center rounded-2xl" style="background:linear-gradient(135deg,#6254E7,#8b80f0)">
+            <i class="fas fa-heart text-white text-2xl"></i>
+          </div>
+          <h5 class="font-nunito font-extrabold text-[17px] text-dark mb-3">Our Values</h5>
+          <p class="text-[15px] leading-relaxed text-body">Integrity, innovation, and client-first thinking guide every decision we make and every solution we build.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section class="reveal py-24 px-6 bg-white">
+    <div class="max-w-screen-lg mx-auto">
+      <div class="text-center mb-14">
+        <h2 class="font-nunito font-extrabold text-dark" style="font-size:clamp(26px,3vw,38px)">Meet Our Team</h2>
+        <div class="w-14 h-0.5 bg-primary mx-auto mt-4 rounded"></div>
+        <p class="text-body mt-4 max-w-xl mx-auto">A passionate team of strategists, developers, and creatives working together to deliver excellence.</p>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-7">
+        <div class="text-center group">
+          <div class="w-24 h-24 mx-auto rounded-full bg-gradient-to-br from-primary to-purple-400 flex items-center justify-center mb-4 group-hover:scale-105 transition-transform">
+            <span class="font-nunito font-black text-2xl text-white">AK</span>
+          </div>
+          <h5 class="font-nunito font-extrabold text-dark text-base">Arjun Kumar</h5>
+          <p class="text-sm text-primary font-medium">CEO & Founder</p>
+        </div>
+        <div class="text-center group">
+          <div class="w-24 h-24 mx-auto rounded-full bg-gradient-to-br from-purple-500 to-pink-400 flex items-center justify-center mb-4 group-hover:scale-105 transition-transform">
+            <span class="font-nunito font-black text-2xl text-white">PS</span>
+          </div>
+          <h5 class="font-nunito font-extrabold text-dark text-base">Priya Sharma</h5>
+          <p class="text-sm text-primary font-medium">Head of SEO</p>
+        </div>
+        <div class="text-center group">
+          <div class="w-24 h-24 mx-auto rounded-full bg-gradient-to-br from-blue-500 to-teal-400 flex items-center justify-center mb-4 group-hover:scale-105 transition-transform">
+            <span class="font-nunito font-black text-2xl text-white">RV</span>
+          </div>
+          <h5 class="font-nunito font-extrabold text-dark text-base">Rahul Verma</h5>
+          <p class="text-sm text-primary font-medium">Lead Developer</p>
+        </div>
+        <div class="text-center group">
+          <div class="w-24 h-24 mx-auto rounded-full bg-gradient-to-br from-orange-400 to-red-400 flex items-center justify-center mb-4 group-hover:scale-105 transition-transform">
+            <span class="font-nunito font-black text-2xl text-white">NM</span>
+          </div>
+          <h5 class="font-nunito font-extrabold text-dark text-base">Neha Mehta</h5>
+          <p class="text-sm text-primary font-medium">Creative Director</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="reveal py-20 px-6 relative" style="background-color:#0b0d18">
+    <div class="max-w-screen-lg mx-auto text-center">
+      <h2 class="font-nunito font-black text-white mb-6" style="font-size:clamp(28px,4vw,48px)">Ready to Grow Your Business?</h2>
+      <p class="text-white/60 text-lg mb-8 max-w-xl mx-auto">Let's build something great together. Our team is ready to help you achieve your digital goals.</p>
+      <a href="contact.html" class="inline-flex items-center gap-2 bg-gradient-to-r from-blue-200 to-purple-300 text-dark font-bold font-nunito px-8 py-4 rounded-full text-sm hover:shadow-lg hover:shadow-purple-500/20 hover:-translate-y-0.5 transition-all no-underline">Get a Free Consultation <span class="text-base">↗</span></a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-[#181622] pt-16 pb-8 px-6 text-white border-t border-white/5">
+    <div class="max-w-screen-xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-4 gap-12 mb-12">
+        <div class="lg:col-span-2">
+          <h2 class="font-nunito font-black text-[#aee6ff] leading-none mb-6" style="font-size:clamp(40px,6vw,72px)">LET'S TALK</h2>
+          <a href="contact.html" class="inline-flex items-center gap-2 bg-gradient-to-r from-blue-200 to-purple-300 text-dark font-bold font-nunito px-7 py-3.5 rounded-full text-sm hover:shadow-lg hover:-translate-y-0.5 transition-all no-underline">Get a Quote <span class="text-base">↗</span></a>
+        </div>
+        <div>
+          <h5 class="font-nunito font-extrabold text-lg text-white mb-6">Quick Links</h5>
+          <ul class="list-none flex flex-col gap-3">
+            <li><a href="index.html" class="text-white/60 no-underline text-[15px] hover:text-white transition-colors">Home</a></li>
+            <li><a href="about.html" class="text-white/60 no-underline text-[15px] hover:text-white transition-colors">About Us</a></li>
+            <li><a href="service.html" class="text-white/60 no-underline text-[15px] hover:text-white transition-colors">Services</a></li>
+            <li><a href="blog.html" class="text-white/60 no-underline text-[15px] hover:text-white transition-colors">Blog</a></li>
+            <li><a href="contact.html" class="text-white/60 no-underline text-[15px] hover:text-white transition-colors">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="font-nunito font-extrabold text-lg text-white mb-6">Contact</h5>
+          <ul class="list-none flex flex-col gap-3">
+            <li class="text-white/60 text-[15px]"><i class="fas fa-envelope text-primary mr-2"></i>hello@mysite.com</li>
+            <li class="text-white/60 text-[15px]"><i class="fas fa-phone text-primary mr-2"></i>8 800 2345 234</li>
+            <li class="text-white/60 text-[15px]"><i class="fas fa-map-marker-alt text-primary mr-2"></i>27 Division St, New York</li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-white/5 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+        <p class="text-white/40 text-xs">© 2026 Garuviafly Tech. All rights reserved.</p>
+        <a href="index.html" class="font-nunito font-extrabold text-2xl text-white no-underline">ewe<span class="text-primary">bot</span></a>
+      </div>
+    </div>
+  </footer>
+
+  <button id="btt" class="fixed bottom-8 right-8 w-11 h-11 bg-primary text-white rounded-lg flex items-center justify-center cursor-pointer z-50 opacity-0 pointer-events-none border-none text-lg hover:bg-purple-700 hover:-translate-y-1 transition-all" title="Back to top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    document.getElementById('hbg').addEventListener('click', function(){ document.getElementById('mnav').classList.toggle('hidden'); });
+    var btt = document.getElementById('btt');
+    window.addEventListener('scroll', function(){ btt.style.opacity = window.scrollY > 400 ? '1' : '0'; btt.style.pointerEvents = window.scrollY > 400 ? 'auto' : 'none'; });
+    btt.addEventListener('click', function(){ window.scrollTo({top:0,behavior:'smooth'}); });
+    document.querySelectorAll('.reveal').forEach(function(el){ new IntersectionObserver(function(e){ if(e[0].isIntersecting) e[0].target.classList.add('visible'); },{threshold:0.1}).observe(el); });
+  </script>
+</body>
+</html>

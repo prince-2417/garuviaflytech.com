@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Blog - Garuviafly Tech</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { nunito: ['Nunito','sans-serif'], rubik: ['Rubik','sans-serif'] },
+          colors: { primary: '#6254E7', dark: '#3b3663', body: '#696687' }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=Rubik:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="css/index.css" />
+</head>
+<body class="bg-white text-body text-lg leading-relaxed font-rubik">
+
+  <!-- HEADER -->
+  <header id="site-header" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 scrolled">
+    <div class="max-w-screen-xl mx-auto px-6 h-20 flex items-center justify-between">
+      <a href="index.html" class="font-nunito font-extrabold text-3xl text-dark no-underline tracking-tight">ewe<span class="text-primary">bot</span></a>
+      <nav class="hidden lg:flex">
+        <ul class="flex gap-8 list-none">
+          <li><a href="index.html" class="font-rubik text-sm font-medium text-dark no-underline hover:text-primary transition-colors">Home</a></li>
+          <li><a href="about.html" class="font-rubik text-sm font-medium text-dark no-underline hover:text-primary transition-colors">About</a></li>
+          <li><a href="service.html" class="font-rubik text-sm font-medium text-dark no-underline hover:text-primary transition-colors">Service</a></li>
+          <li><a href="travel-services.html" class="font-rubik text-sm font-medium text-dark no-underline hover:text-primary transition-colors">Travel Services</a></li>
+          <li><a href="blog.html" class="font-rubik text-sm font-medium text-primary no-underline">Blog</a></li>
+        </ul>
+      </nav>
+      <a href="contact.html" class="hidden lg:inline-block bg-primary text-white font-nunito font-bold text-sm px-6 py-2.5 rounded-md hover:bg-purple-700 transition-colors no-underline">Contact Us</a>
+      <button id="hbg" class="lg:hidden flex flex-col gap-1.5 cursor-pointer bg-transparent border-none" aria-label="Menu">
+        <span class="w-6 h-0.5 bg-dark rounded"></span>
+        <span class="w-6 h-0.5 bg-dark rounded"></span>
+        <span class="w-6 h-0.5 bg-dark rounded"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- MOBILE NAV -->
+  <div id="mnav" class="hidden fixed top-20 left-0 w-full bg-white/95 backdrop-blur-md px-6 py-4 border-b border-gray-100 z-40">
+    <ul class="list-none">
+      <li class="border-b border-gray-100"><a href="index.html" class="block py-3.5 text-dark text-base font-medium no-underline">Home</a></li>
+      <li class="border-b border-gray-100"><a href="about.html" class="block py-3.5 text-dark text-base font-medium no-underline">About</a></li>
+      <li class="border-b border-gray-100"><a href="service.html" class="block py-3.5 text-dark text-base font-medium no-underline">Service</a></li>
+      <li class="border-b border-gray-100"><a href="travel-services.html" class="block py-3.5 text-dark text-base font-medium no-underline">Travel Services</a></li>
+      <li class="border-b border-gray-100"><a href="blog.html" class="block py-3.5 text-primary text-base font-bold no-underline">Blog</a></li>
+      <li><a href="contact.html" class="block py-3.5 text-primary font-bold no-underline">Contact Us</a></li>
+    </ul>
+  </div>
+
+  <!-- PAGE HERO -->
+  <section class="pt-36 pb-20 px-6 relative overflow-hidden" style="background:linear-gradient(135deg,#0f0e1a 0%,#1a1730 60%,#2d1f6e 100%)">
+    <div class="max-w-screen-lg mx-auto text-center relative z-10">
+      <div class="inline-flex items-center gap-2 bg-primary/20 border border-primary/40 rounded-full px-4 py-1.5 mb-6">
+        <div class="w-1.5 h-1.5 bg-primary rounded-full"></div>
+        <span class="font-rubik text-xs font-medium text-purple-300 uppercase tracking-widest">Our Blog</span>
+      </div>
+      <h1 class="font-nunito font-black text-white leading-tight mb-6" style="font-size:clamp(36px,5vw,64px)">Insights, Tips &<br><span class="text-primary">Industry News</span></h1>
+      <p class="text-white/70 text-lg max-w-2xl mx-auto">Stay updated with the latest trends in AI, SEO, digital marketing, and technology.</p>
+    </div>
+    <div class="absolute inset-0 opacity-10" style="background-image:radial-gradient(circle at 20% 50%,#6254E7 0%,transparent 50%),radial-gradient(circle at 80% 20%,#a78bfa 0%,transparent 40%)"></div>
+  </section>
+
+  <!-- FEATURED POST -->
+  <section class="reveal py-16 px-6 bg-white">
+    <div class="max-w-screen-lg mx-auto">
+      <div class="bg-[#f6f5fa] rounded-3xl overflow-hidden grid grid-cols-1 lg:grid-cols-2 gap-0">
+        <div class="h-64 lg:h-auto min-h-[280px] flex items-center justify-center" style="background:linear-gradient(135deg,#6254E7,#a78bfa)">
+          <i class="fas fa-brain text-white/30" style="font-size:120px"></i>
+        </div>
+        <div class="p-10 flex flex-col justify-center">
+          <div class="inline-flex items-center gap-2 bg-primary/10 text-primary text-xs font-bold px-3 py-1 rounded-full mb-4 w-fit">Featured</div>
+          <h2 class="font-nunito font-extrabold text-dark mb-4" style="font-size:clamp(20px,2vw,28px)">How AI is Revolutionizing SEO in 2025: A Complete Guide</h2>
+          <p class="text-body text-[15px] leading-relaxed mb-6">Artificial intelligence is transforming how search engines rank content. Discover the key AI-driven SEO strategies that top agencies are using to dominate search results.</p>
+          <div class="flex items-center gap-4 text-sm text-body mb-6">
+            <span><i class="fas fa-user text-primary mr-1"></i>Arjun Kumar</span>
+            <span><i class="fas fa-calendar text-primary mr-1"></i>Jan 15, 2025</span>
+            <span><i class="fas fa-clock text-primary mr-1"></i>8 min read</span>
+          </div>
+          <a href="#" class="inline-flex items-center gap-2 bg-primary text-white font-nunito font-bold text-sm px-6 py-3 rounded-lg hover:bg-purple-700 transition-colors no-underline w-fit">Read Article →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOG GRID -->
+  <section class="reveal py-12 pb-24 px-6 bg-white">
+    <div class="max-w-screen-lg mx-auto">
+      <div class="flex items-center justify-between mb-10">
+        <h2 class="font-nunito font-extrabold text-dark" style="font-size:clamp(22px,2.5vw,32px)">Latest Articles</h2>
+        <div class="flex gap-2">
+          <button class="bg-primary text-white text-xs font-bold px-4 py-2 rounded-full">All</button>
+          <button class="bg-[#f6f5fa] text-dark text-xs font-bold px-4 py-2 rounded-full hover:bg-primary hover:text-white transition-colors">SEO</button>
+          <button class="bg-[#f6f5fa] text-dark text-xs font-bold px-4 py-2 rounded-full hover:bg-primary hover:text-white transition-colors">Marketing</button>
+          <button class="hidden sm:block bg-[#f6f5fa] text-dark text-xs font-bold px-4 py-2 rounded-full hover:bg-primary hover:text-white transition-colors">Tech</button>
+        </div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-7">
+
+        <!-- Post 1 -->
+        <article class="bg-white rounded-2xl border border-[#eeedf8] overflow-hidden hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-1.5 transition-all group">
+          <div class="h-48 flex items-center justify-center" style="background:linear-gradient(135deg,#1a1a2e,#6254E7)">
+            <i class="fas fa-search text-white/30 text-6xl"></i>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="bg-primary/10 text-primary text-xs font-bold px-2.5 py-1 rounded-full">SEO</span>
+              <span class="text-xs text-body">Jan 10, 2025</span>
+            </div>
+            <h4 class="font-nunito font-extrabold text-dark text-base mb-3 group-hover:text-primary transition-colors">10 Local SEO Strategies That Actually Work in 2025</h4>
+            <p class="text-[14px] text-body leading-relaxed mb-4">Discover proven local SEO tactics to help your business rank higher in local search results and attract more nearby customers.</p>
+            <a href="#" class="text-primary text-sm font-semibold no-underline hover:underline">Read More →</a>
+          </div>
+        </article>
+
+        <!-- Post 2 -->
+        <article class="bg-white rounded-2xl border border-[#eeedf8] overflow-hidden hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-1.5 transition-all group">
+          <div class="h-48 flex items-center justify-center" style="background:linear-gradient(135deg,#0d1f3c,#533483)">
+            <i class="fas fa-chart-line text-white/30 text-6xl"></i>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="bg-primary/10 text-primary text-xs font-bold px-2.5 py-1 rounded-full">Marketing</span>
+              <span class="text-xs text-body">Jan 8, 2025</span>
+            </div>
+            <h4 class="font-nunito font-extrabold text-dark text-base mb-3 group-hover:text-primary transition-colors">Google Ads vs Meta Ads: Which Delivers Better ROI?</h4>
+            <p class="text-[14px] text-body leading-relaxed mb-4">A data-driven comparison of Google Ads and Meta Ads to help you decide where to invest your paid advertising budget.</p>
+            <a href="#" class="text-primary text-sm font-semibold no-underline hover:underline">Read More →</a>
+          </div>
+        </article>
+
+        <!-- Post 3 -->
+        <article class="bg-white rounded-2xl border border-[#eeedf8] overflow-hidden hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-1.5 transition-all group">
+          <div class="h-48 flex items-center justify-center" style="background:linear-gradient(135deg,#1b4332,#6254E7)">
+            <i class="fas fa-mobile-alt text-white/30 text-6xl"></i>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="bg-primary/10 text-primary text-xs font-bold px-2.5 py-1 rounded-full">Tech</span>
+              <span class="text-xs text-body">Jan 5, 2025</span>
+            </div>
+            <h4 class="font-nunito font-extrabold text-dark text-base mb-3 group-hover:text-primary transition-colors">Flutter vs React Native: Best Choice for 2025</h4>
+            <p class="text-[14px] text-body leading-relaxed mb-4">An in-depth comparison of Flutter and React Native to help you choose the right framework for your next mobile app project.</p>
+            <a href="#" class="text-primary text-sm font-semibold no-underline hover:underline">Read More →</a>
+          </div>
+        </article>
+
+        <!-- Post 4 -->
+        <article class="bg-white rounded-2xl border border-[#eeedf8] overflow-hidden hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-1.5 transition-all group">
+          <div class="h-48 flex items-center justify-center" style="background:linear-gradient(135deg,#7b2d8b,#6254E7)">
+            <i class="fas fa-pen-nib text-white/30 text-6xl"></i>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="bg-primary/10 text-primary text-xs font-bold px-2.5 py-1 rounded-full">SEO</span>
+              <span class="text-xs text-body">Dec 28, 2024</span>
+            </div>
+            <h4 class="font-nunito font-extrabold text-dark text-base mb-3 group-hover:text-primary transition-colors">AI Content Optimization: The Ultimate 2025 Playbook</h4>
+            <p class="text-[14px] text-body leading-relaxed mb-4">Learn how to use AI tools to create, optimize, and scale content that ranks on Google and converts visitors into customers.</p>
+            <a href="#" class="text-primary text-sm font-semibold no-underline hover:underline">Read More →</a>
+          </div>
+        </article>
+
+        <!-- Post 5 -->
+        <article class="bg-white rounded-2xl border border-[#eeedf8] overflow-hidden hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-1.5 transition-all group">
+          <div class="h-48 flex items-center justify-center" style="background:linear-gradient(135deg,#c2185b,#6254E7)">
+            <i class="fas fa-globe text-white/30 text-6xl"></i>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="bg-primary/10 text-primary text-xs font-bold px-2.5 py-1 rounded-full">Marketing</span>
+              <span class="text-xs text-body">Dec 20, 2024</span>
+            </div>
+            <h4 class="font-nunito font-extrabold text-dark text-base mb-3 group-hover:text-primary transition-colors">Social Media Marketing Trends to Watch in 2025</h4>
+            <p class="text-[14px] text-body leading-relaxed mb-4">From short-form video to AI-generated content — here are the social media trends that will define marketing success in 2025.</p>
+            <a href="#" class="text-primary text-sm font-semibold no-underline hover:underline">Read More →</a>
+          </div>
+        </article>
+
+        <!-- Post 6 -->
+        <article class="bg-white rounded-2xl border border-[#eeedf8] overflow-hidden hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-1.5 transition-all group">
+          <div class="h-48 flex items-center justify-center" style="background:linear-gradient(135deg,#0f3460,#1b4332)">
+            <i class="fas fa-shield-alt text-white/30 text-6xl"></i>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="bg-primary/10 text-primary text-xs font-bold px-2.5 py-1 rounded-full">Tech</span>
+              <span class="text-xs text-body">Dec 15, 2024</span>
+            </div>
+            <h4 class="font-nunito font-extrabold text-dark text-base mb-3 group-hover:text-primary transition-colors">Website Security Best Practices Every Business Needs</h4>
+            <p class="text-[14px] text-body leading-relaxed mb-4">Protect your website from cyber threats with these essential security practices that every business owner should implement today.</p>
+            <a href="#" class="text-primary text-sm font-semibold no-underline hover:underline">Read More →</a>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- Pagination -->
+      <div class="flex items-center justify-center gap-2 mt-14">
+        <button class="w-10 h-10 rounded-lg bg-primary text-white font-bold text-sm">1</button>
+        <button class="w-10 h-10 rounded-lg bg-[#f6f5fa] text-dark font-bold text-sm hover:bg-primary hover:text-white transition-colors">2</button>
+        <button class="w-10 h-10 rounded-lg bg-[#f6f5fa] text-dark font-bold text-sm hover:bg-primary hover:text-white transition-colors">3</button>
+        <span class="text-body px-2">...</span>
+        <button class="w-10 h-10 rounded-lg bg-[#f6f5fa] text-dark font-bold text-sm hover:bg-primary hover:text-white transition-colors"><i class="fas fa-chevron-right text-xs"></i></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section class="reveal py-20 px-6" style="background-color:#0b0d18">
+    <div class="max-w-screen-md mx-auto text-center">
+      <h2 class="font-nunito font-black text-white mb-4" style="font-size:clamp(26px,3.5vw,42px)">Never Miss an Update</h2>
+      <p class="text-white/60 mb-8">Subscribe to our newsletter for the latest SEO tips, marketing insights, and tech news.</p>
+      <div class="flex bg-white/5 border border-white/10 rounded-full p-1 pl-5 items-center max-w-md mx-auto">
+        <input type="email" placeholder="Your email address" class="bg-transparent text-white outline-none w-full text-sm placeholder-white/40 py-2.5" />
+        <button class="bg-gradient-to-r from-blue-200 to-purple-300 text-dark font-bold px-7 py-3 rounded-full text-sm hover:opacity-90 transition-opacity whitespace-nowrap">Subscribe</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-[#181622] pt-16 pb-8 px-6 text-white border-t border-white/5">
+    <div class="max-w-screen-xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-4 gap-12 mb-12">
+        <div class="lg:col-span-2">
+          <h2 class="font-nunito font-black text-[#aee6ff] leading-none mb-6" style="font-size:clamp(40px,6vw,72px)">LET'S TALK</h2>
+          <a href="contact.html" class="inline-flex items-center gap-2 bg-gradient-to-r from-blue-200 to-purple-300 text-dark font-bold font-nunito px-7 py-3.5 rounded-full text-sm hover:shadow-lg hover:-translate-y-0.5 transition-all no-underline">Get a Quote <span class="text-base">↗</span></a>
+        </div>
+        <div>
+          <h5 class="font-nunito font-extrabold text-lg text-white mb-6">Quick Links</h5>
+          <ul class="list-none flex flex-col gap-3">
+            <li><a href="index.html" class="text-white/60 no-underline text-[15px] hover:text-white transition-colors">Home</a></li>
+            <li><a href="about.html" class="text-white/60 no-underline text-[15px] hover:text-white transition-colors">About Us</a></li>
+            <li><a href="service.html" class="text-white/60 no-underline text-[15px] hover:text-white transition-colors">Services</a></li>
+            <li><a href="blog.html" class="text-white/60 no-underline text-[15px] hover:text-white transition-colors">Blog</a></li>
+            <li><a href="contact.html" class="text-white/60 no-underline text-[15px] hover:text-white transition-colors">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="font-nunito font-extrabold text-lg text-white mb-6">Contact</h5>
+          <ul class="list-none flex flex-col gap-3">
+            <li class="text-white/60 text-[15px]"><i class="fas fa-envelope text-primary mr-2"></i>hello@mysite.com</li>
+            <li class="text-white/60 text-[15px]"><i class="fas fa-phone text-primary mr-2"></i>8 800 2345 234</li>
+            <li class="text-white/60 text-[15px]"><i class="fas fa-map-marker-alt text-primary mr-2"></i>27 Division St, New York</li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-white/5 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+        <p class="text-white/40 text-xs">© 2026 Garuviafly Tech. All rights reserved.</p>
+        <a href="index.html" class="font-nunito font-extrabold text-2xl text-white no-underline">ewe<span class="text-primary">bot</span></a>
+      </div>
+    </div>
+  </footer>
+
+  <button id="btt" class="fixed bottom-8 right-8 w-11 h-11 bg-primary text-white rounded-lg flex items-center justify-center cursor-pointer z-50 opacity-0 pointer-events-none border-none text-lg hover:bg-purple-700 hover:-translate-y-1 transition-all" title="Back to top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    document.getElementById('hbg').addEventListener('click', function(){ document.getElementById('mnav').classList.toggle('hidden'); });
+    var btt = document.getElementById('btt');
+    window.addEventListener('scroll', function(){ btt.style.opacity = window.scrollY > 400 ? '1' : '0'; btt.style.pointerEvents = window.scrollY > 400 ? 'auto' : 'none'; });
+    btt.addEventListener('click', function(){ window.scrollTo({top:0,behavior:'smooth'}); });
+    document.querySelectorAll('.reveal').forEach(function(el){ new IntersectionObserver(function(e){ if(e[0].isIntersecting) e[0].target.classList.add('visible'); },{threshold:0.1}).observe(el); });
+  </script>
+</body>
+</html>
