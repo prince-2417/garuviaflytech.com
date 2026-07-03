@@ -126,7 +126,7 @@ header nav ul {
 
 /* extend hover zone without affecting layout */
 header nav ul li.group {
-    position: static;
+    position: relative;
 }
 
 .mega-dropdown {
@@ -144,10 +144,7 @@ header nav ul li.group {
     height: 20px;
 }
 
-/* show panel when li.group is hovered */
-.group:hover .mega-dropdown {
-    pointer-events: auto;
-}
+/* show panel when li.group is hovered — handled by JS only */
 
 /* keep panel open when mouse is directly over it */
 .mega-dropdown:hover {

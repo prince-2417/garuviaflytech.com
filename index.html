@@ -76,7 +76,7 @@
             </a>
 
             <!-- Mega Menu Panel -->
-            <div class="mega-dropdown absolute top-full mt-0 w-[900px] bg-white rounded-2xl shadow-2xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 translate-y-2 group-hover:translate-y-0 z-50" id="megaPanel" style="left:50%; transform:translateX(-80%);">
+            <div class="mega-dropdown absolute top-full mt-0 w-[900px] bg-white rounded-2xl shadow-2xl border border-gray-100 opacity-0 invisible transition-all duration-200 translate-y-2 z-50" id="megaPanel" style="left:0;transform:none;">
               <div class="grid grid-cols-4 divide-x divide-gray-100 p-2">
 
                 <!-- Col 1: SEO Services -->
@@ -965,16 +965,18 @@
     }
 
     function positionPanel() {
-      panel.style.left = '0';
       panel.style.transform = 'none';
-      const tr   = trigger.getBoundingClientRect();
-      const pw   = panel.offsetWidth;
-      const vw   = window.innerWidth;
-      const pad  = 16;
-      let left   = tr.left + tr.width / 2 - pw / 2;
-      if (left + pw + pad > vw) left = vw - pw - pad;
-      if (left < pad) left = pad;
-      panel.style.left = (left - tr.left) + 'px';
+      panel.style.left = '0';
+      const tr  = trigger.getBoundingClientRect();
+      const pw  = panel.offsetWidth;
+      const vw  = window.innerWidth;
+      const pad = 16;
+      // center panel under trigger, clamped to viewport
+      let viewportLeft = tr.left + tr.width / 2 - pw / 2;
+      if (viewportLeft + pw + pad > vw) viewportLeft = vw - pw - pad;
+      if (viewportLeft < pad) viewportLeft = pad;
+      // panel is absolute inside li (position:relative), so offset = viewportLeft - tr.left
+      panel.style.left = (viewportLeft - tr.left) + 'px';
     }
 
     trigger.addEventListener('mouseenter', showPanel);
