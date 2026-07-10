@@ -92,6 +92,19 @@ h1, h2, h3, h4, h5, h6 {
     box-shadow: 0 2px 20px rgba(0,0,0,.08) !important;
 }
 
+/* When header is scrolled, switch nav links back to dark */
+#site-header.scrolled nav a,
+#site-header.scrolled .font-nunito {
+    color: #3b3663 !important;
+}
+#site-header.scrolled nav a:hover {
+    color: #6254E7 !important;
+}
+#site-header.scrolled .bg-white\/5 span,
+#site-header.scrolled #hbg span {
+    background-color: #3b3663 !important;
+}
+
 @keyframes marqueeTestimonials {
     0%   { transform: translateX(0) }
     100% { transform: translateX(-50%) }

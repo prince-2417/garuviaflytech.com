@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Service Details - Garuviafly Tech</title>
+  <meta name="description" content="Explore our specialized services to grow your business." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { nunito: ['Nunito','sans-serif'], rubik: ['Rubik','sans-serif'] },
+          colors: { primary: '#6254E7', dark: '#3b3663', body: '#696687' }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=Rubik:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="css/index.css" />
+  <style>
+    @keyframes svcFadeUp { from{opacity:0;transform:translateY(28px)} to{opacity:1;transform:translateY(0)} }
+    @keyframes svcFloat  { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
+    @keyframes svcSpin   { from{transform:translate(-50%,-50%) rotate(0deg)} to{transform:translate(-50%,-50%) rotate(360deg)} }
+    @keyframes svcDot    { 0%,100%{transform:scale(1);opacity:1} 50%{transform:scale(1.5);opacity:.5} }
+    .faq-item button:focus { outline: none; }
+  </style>
+</head>
+<body class="bg-white text-body text-lg leading-relaxed font-rubik">
+
+  <!-- HEADER -->
+  <header id="site-header" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 scrolled">
+    <div class="max-w-screen-xl mx-auto px-6 h-20 flex items-center justify-between">
+      <a href="index.html" class="font-nunito font-extrabold text-3xl text-dark no-underline tracking-tight">ewe<span class="text-primary">bot</span></a>
+      <nav class="hidden lg:flex">
+        <ul class="flex gap-8 list-none">
+          <li><a href="index.html" class="font-rubik text-sm font-medium text-dark no-underline hover:text-primary transition-colors">Home</a></li>
+          <li><a href="about.html" class="font-rubik text-sm font-medium text-dark no-underline hover:text-primary transition-colors">About</a></li>
+          <li><a href="service.html" class="font-rubik text-sm font-medium text-primary no-underline" id="nav-service-link">Service</a></li>
+          <li><a href="travel-services.html" class="font-rubik text-sm font-medium text-dark no-underline hover:text-primary transition-colors">Travel Services</a></li>
+          <li><a href="blog.html" class="font-rubik text-sm font-medium text-dark no-underline hover:text-primary transition-colors">Blog</a></li>
+        </ul>
+      </nav>
+      <a href="contact.html" class="hidden lg:inline-block bg-primary text-white font-nunito font-bold text-sm px-6 py-2.5 rounded-md hover:bg-purple-700 transition-colors no-underline">Contact Us</a>
+      <button id="hbg" class="lg:hidden flex flex-col gap-1.5 cursor-pointer bg-transparent border-none" aria-label="Menu">
+        <span class="w-6 h-0.5 bg-dark rounded"></span>
+        <span class="w-6 h-0.5 bg-dark rounded"></span>
+        <span class="w-6 h-0.5 bg-dark rounded"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- MOBILE NAV -->
+  <div id="mnav" class="hidden fixed top-20 left-0 w-full bg-white/95 backdrop-blur-md px-6 py-4 border-b border-gray-100 z-40">
+    <ul class="list-none">
+      <li class="border-b border-gray-100"><a href="index.html" class="block py-3.5 text-dark text-base font-medium no-underline">Home</a></li>
+      <li class="border-b border-gray-100"><a href="about.html" class="block py-3.5 text-dark text-base font-medium no-underline">About</a></li>
+      <li class="border-b border-gray-100"><a href="service.html" class="block py-3.5 text-primary text-base font-bold no-underline" id="mnav-service-link">Service</a></li>
+      <li class="border-b border-gray-100"><a href="travel-services.html" class="block py-3.5 text-dark text-base font-medium no-underline">Travel Services</a></li>
+      <li class="border-b border-gray-100"><a href="blog.html" class="block py-3.5 text-dark text-base font-medium no-underline">Blog</a></li>
+      <li><a href="contact.html" class="block py-3.5 text-primary font-bold no-underline">Contact Us</a></li>
+    </ul>
+  </div>
+
+  <!-- NOT FOUND STATE -->
+  <section id="not-found" class="hidden pt-36 pb-24 px-6 min-h-[70vh] flex flex-col items-center justify-center text-center bg-[#f6f5fa]">
+    <div class="max-w-md mx-auto">
+      <i class="fas fa-exclamation-circle text-primary text-7xl mb-6"></i>
+      <h2 class="font-nunito font-black text-dark text-3xl mb-4">Service Not Found</h2>
+      <p class="text-body mb-8">The service details page you are trying to view does not exist or has been updated.</p>
+      <a href="service.html" class="bg-primary text-white font-nunito font-bold text-sm px-6 py-3 rounded-lg hover:bg-purple-700 transition-colors no-underline">View Services</a>
+    </div>
+  </section>
+
+  <!-- CONTENT STATE -->
+  <div id="service-content-area">
+    <!-- PAGE HERO WITH DYNAMIC PARTICLE BACKGROUND -->
+    <section id="svc-hero" class="relative overflow-hidden flex items-center justify-center bg-[#0f0e1a]" style="min-height:480px">
+      <canvas id="svc-canvas" style="position:absolute;inset:0;width:100%;height:100%;z-index:1"></canvas>
+
+      <!-- Animated orbs -->
+      <div id="orb-1" style="position:absolute;width:480px;height:480px;border-radius:50%;top:-100px;right:-80px;z-index:2;animation:svcFloat 9s ease-in-out infinite"></div>
+      <div id="orb-2" style="position:absolute;width:360px;height:360px;border-radius:50%;bottom:-60px;left:-60px;z-index:2;animation:svcFloat 7s ease-in-out infinite reverse"></div>
+
+      <!-- Rotating rings -->
+      <div style="position:absolute;width:320px;height:320px;border:1px solid rgba(255,255,255,.08);border-radius:50%;top:50%;left:50%;transform:translate(-50%,-50%);z-index:2;animation:svcSpin 22s linear infinite"></div>
+      <div style="position:absolute;width:480px;height:480px;border:1px dashed rgba(255,255,255,.05);border-radius:50%;top:50%;left:50%;transform:translate(-50%,-50%);z-index:2;animation:svcSpin 38s linear infinite reverse"></div>
+
+      <div class="relative max-w-screen-lg mx-auto px-6 pt-36 pb-20 text-center" style="z-index:5">
+        <!-- Badge -->
+        <div style="animation:svcFadeUp .7s ease forwards">
+          <div class="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-1.5 mb-6">
+            <div style="width:7px;height:7px;background:#6254E7;border-radius:50%;animation:svcDot 2s infinite" id="badge-dot"></div>
+            <span class="font-rubik text-xs font-semibold text-white uppercase tracking-widest" id="service-category">Category</span>
+          </div>
+        </div>
+
+        <!-- Heading -->
+        <h1 id="service-title" class="font-nunito font-black text-white leading-tight mb-6" style="font-size:clamp(32px,5vw,56px);animation:svcFadeUp .7s ease forwards .2s">Service Name</h1>
+
+        <!-- Subtext -->
+        <p id="service-desc" class="text-white/70 text-lg max-w-2xl mx-auto leading-relaxed" style="animation:svcFadeUp .7s ease forwards .4s">Service description summary goes here.</p>
+      </div>
+    </section>
+
+    <!-- KEY FEATURES SECTION -->
+    <section class="reveal py-20 px-6 bg-white">
+      <div class="max-w-screen-lg mx-auto">
+        <div class="text-center mb-16">
+          <h2 class="font-nunito font-extrabold text-dark" style="font-size:clamp(24px,3vw,34px)">Key Benefits & Features</h2>
+          <div class="w-14 h-1 bg-primary mx-auto mt-4 rounded" id="section-bar"></div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8" id="features-grid">
+          <!-- Key features injected here -->
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESS WORKFLOW SECTION -->
+    <section class="reveal py-20 px-6 bg-[#f6f5fa] border-y border-gray-100">
+      <div class="max-w-screen-lg mx-auto">
+        <div class="text-center mb-16">
+          <h2 class="font-nunito font-extrabold text-dark" style="font-size:clamp(24px,3vw,34px)">Our Working Process</h2>
+          <p class="text-body text-sm mt-3">Simple steps we take to ensure your campaign success.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6" id="process-grid">
+          <!-- Steps injected here -->
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQS & QUICK QUOTE SECTION -->
+    <section class="reveal py-20 px-6 bg-white">
+      <div class="max-w-screen-lg mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12">
+        
+        <!-- FAQS accordion -->
+        <div class="lg:col-span-7">
+          <h3 class="font-nunito font-extrabold text-dark text-2xl mb-8">Frequently Asked Questions</h3>
+          <div class="flex flex-col gap-4" id="faq-accordion">
+            <!-- FAQs injected here -->
+          </div>
+        </div>
+
+        <!-- Quick Quote Card -->
+        <div class="lg:col-span-5 bg-[#0b0a1a] rounded-[24px] p-8 text-white relative overflow-hidden border border-white/5 shadow-2xl">
+          <div class="absolute inset-0 bg-primary/10 opacity-35"></div>
+          <div class="relative z-10">
+            <h4 class="font-nunito font-extrabold text-xl mb-2">Request a Quote</h4>
+            <p class="text-white/60 text-sm mb-6">Send us a message and we'll reply with a custom quote within 24 hours.</p>
+            <form id="quote-form" class="flex flex-col gap-4">
+              <input type="text" placeholder="Your Name" class="bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm outline-none placeholder-white/40 focus:border-white/30 transition-colors w-full" required />
+              <input type="email" placeholder="Email Address" class="bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm outline-none placeholder-white/40 focus:border-white/30 transition-colors w-full" required />
+              <textarea placeholder="Describe your project requirements..." rows="4" class="bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm outline-none placeholder-white/40 focus:border-white/30 transition-colors w-full resize-none" required></textarea>
+              <button type="submit" class="bg-primary hover:bg-purple-700 text-white font-nunito font-bold text-sm py-3.5 rounded-xl transition-all w-full mt-2 hover:-translate-y-0.5">Submit Quote Request</button>
+            </form>
+            <div id="form-success" class="hidden mt-4 p-4 bg-green-500/20 border border-green-500/30 rounded-xl text-green-300 text-sm text-center">
+              <i class="fas fa-check-circle mr-1.5"></i> Request sent successfully! We'll get back to you soon.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- BIG DYNAMIC CTA -->
+    <section id="svc-cta" class="reveal py-20 px-6 text-center text-white" style="background-color:#0b0d18">
+      <div class="max-w-screen-md mx-auto relative z-10">
+        <h2 class="font-nunito font-black mb-4 leading-tight" style="font-size:clamp(26px,4vw,42px)" id="cta-heading">Ready to boost your business rankings?</h2>
+        <p class="text-white/60 mb-8 max-w-xl mx-auto" id="cta-desc">Work with our expert SEO agency and unlock massive organic search traffic conversions.</p>
+        <a href="contact.html" class="inline-flex items-center gap-2 bg-gradient-to-r from-blue-200 to-purple-300 text-dark font-bold font-nunito px-8 py-4 rounded-full text-sm hover:shadow-lg hover:-translate-y-0.5 transition-all no-underline" id="cta-btn">Book Free Consultation <span class="text-base">↗</span></a>
+      </div>
+    </section>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="bg-[#181622] pt-16 pb-8 px-6 text-white border-t border-white/5">
+    <div class="max-w-screen-xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-4 gap-12 mb-12">
+        <div class="lg:col-span-2">
+          <h2 class="font-nunito font-black text-[#aee6ff] leading-none mb-6" style="font-size:clamp(40px,6vw,72px)">LET'S TALK</h2>
+          <a href="contact.html" class="inline-flex items-center gap-2 bg-gradient-to-r from-blue-200 to-purple-300 text-dark font-bold font-nunito px-7 py-3.5 rounded-full text-sm hover:shadow-lg hover:-translate-y-0.5 transition-all no-underline">Get a Quote <span class="text-base">↗</span></a>
+        </div>
+        <div>
+          <h5 class="font-nunito font-extrabold text-lg text-white mb-6">Quick Links</h5>
+          <ul class="list-none flex flex-col gap-3">
+            <li><a href="index.html" class="text-white/60 no-underline text-[15px] hover:text-white transition-colors">Home</a></li>
+            <li><a href="about.html" class="text-white/60 no-underline text-[15px] hover:text-white transition-colors">About Us</a></li>
+            <li><a href="service.html" class="text-white/60 no-underline text-[15px] hover:text-white transition-colors">Services</a></li>
+            <li><a href="blog.html" class="text-white/60 no-underline text-[15px] hover:text-white transition-colors">Blog</a></li>
+            <li><a href="contact.html" class="text-white/60 no-underline text-[15px] hover:text-white transition-colors">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="font-nunito font-extrabold text-lg text-white mb-6">Contact</h5>
+          <ul class="list-none flex flex-col gap-3">
+            <li class="text-white/60 text-[15px]"><i class="fas fa-envelope text-primary mr-2"></i>hello@mysite.com</li>
+            <li class="text-white/60 text-[15px]"><i class="fas fa-phone text-primary mr-2"></i>8 800 2345 234</li>
+            <li class="text-white/60 text-[15px]"><i class="fas fa-map-marker-alt text-primary mr-2"></i>27 Division St, New York</li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-white/5 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+        <p class="text-white/40 text-xs">© 2026 Garuviafly Tech. All rights reserved.</p>
+        <a href="index.html" class="font-nunito font-extrabold text-2xl text-white no-underline">ewe<span class="text-primary">bot</span></a>
+      </div>
+    </div>
+  </footer>
+
+  <button id="btt" class="fixed bottom-8 right-8 w-11 h-11 bg-primary text-white rounded-lg flex items-center justify-center cursor-pointer z-50 opacity-0 pointer-events-none border-none text-lg hover:bg-purple-700 hover:-translate-y-1 transition-all" title="Back to top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <script src="js/service-data.js"></script>
+  <script>
+    // General Navigation Scroll & Menu Trigger
+    document.getElementById('hbg').addEventListener('click', function(){ document.getElementById('mnav').classList.toggle('hidden'); });
+    var btt = document.getElementById('btt');
+    window.addEventListener('scroll', function(){ btt.style.opacity = window.scrollY > 400 ? '1' : '0'; btt.style.pointerEvents = window.scrollY > 400 ? 'auto' : 'none'; });
+    btt.addEventListener('click', function(){ window.scrollTo({top:0,behavior:'smooth'}); });
+
+    // Reveal animations on scroll
+    document.querySelectorAll('.reveal').forEach(function(el){ 
+      new IntersectionObserver(function(e){ if(e[0].isIntersecting) e[0].target.classList.add('visible'); },{threshold:0.1}).observe(el); 
+    });
+
+    // Form success handler
+    document.getElementById('quote-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      document.getElementById('quote-form').reset();
+      document.getElementById('form-success').classList.remove('hidden');
+      setTimeout(() => { document.getElementById('form-success').classList.add('hidden'); }, 4000);
+    });
+
+    // Toggle FAQ item panels
+    function toggleFaqPanel(index) {
+      const panels = document.querySelectorAll('.faq-panel');
+      const icons = document.querySelectorAll('.faq-icon');
+      panels.forEach((panel, i) => {
+        if (i === index) {
+          const isHidden = panel.classList.contains('hidden');
+          if (isHidden) {
+            panel.classList.remove('hidden');
+            icons[i].classList.add('rotate-180');
+          } else {
+            panel.classList.add('hidden');
+            icons[i].classList.remove('rotate-180');
+          }
+        } else {
+          panel.classList.add('hidden');
+          icons[i].classList.remove('rotate-180');
+        }
+      });
+    }
+
+    // Load dynamic contents
+    (function() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const svcId = urlParams.get('id');
+
+      if (!svcId || !SERVICE_DATA[svcId]) {
+        document.getElementById('service-content-area').classList.add('hidden');
+        document.getElementById('not-found').classList.remove('hidden');
+        document.title = "Service Not Found - Garuviafly Tech";
+        return;
+      }
+
+      const svc = SERVICE_DATA[svcId];
+
+      // Update document tags
+      document.title = `${svc.title} - Garuviafly Tech`;
+      document.querySelector('meta[name="description"]').setAttribute("content", svc.desc);
+
+      // Category adjustments
+      document.getElementById('service-category').textContent = svc.category;
+      document.getElementById('service-title').textContent = svc.title;
+      document.getElementById('service-desc').textContent = svc.desc;
+
+      // Check category and theme (Travel vs Tech branding colors)
+      const primaryColor = svc.isTravel ? "#3b82f6" : "#6254E7";
+      const hoverColor = svc.isTravel ? "hover:bg-blue-600" : "hover:bg-purple-700";
+      
+      // Update links in nav depending on service type
+      if (svc.isTravel) {
+        document.getElementById('nav-service-link').classList.remove('text-primary');
+        document.getElementById('nav-service-link').classList.add('text-dark');
+        document.getElementById('mnav-service-link').classList.remove('text-primary');
+        document.getElementById('mnav-service-link').classList.add('text-dark');
+      }
+
+      // Dynamic color adjustments for components
+      document.getElementById('badge-dot').style.backgroundColor = primaryColor;
+      document.getElementById('section-bar').style.backgroundColor = primaryColor;
+      document.getElementById('svc-hero').style.background = svc.bg;
+
+      // Orb colors
+      document.getElementById('orb-1').style.background = `radial-gradient(circle, ${svc.isTravel ? 'rgba(59,130,246,.25)' : 'rgba(98,84,231,.25)'} 0%, transparent 70%)`;
+      document.getElementById('orb-2').style.background = `radial-gradient(circle, ${svc.isTravel ? 'rgba(98,84,231,.15)' : 'rgba(56,189,248,.15)'} 0%, transparent 70%)`;
+
+      // Render Features
+      const featuresGrid = document.getElementById('features-grid');
+      svc.features.forEach(f => {
+        const div = document.createElement('div');
+        div.className = "flex gap-4 p-6 rounded-2xl border border-gray-100 hover:shadow-xl hover:shadow-primary/5 transition-all";
+        div.innerHTML = `
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center text-white shrink-0" style="background: ${svc.bg}">
+            <i class="fas ${svc.icon}"></i>
+          </div>
+          <div>
+            <h5 class="font-nunito font-extrabold text-dark text-base mb-1.5">${f.title}</h5>
+            <p class="text-body text-[14px] leading-relaxed">${f.desc}</p>
+          </div>
+        `;
+        featuresGrid.appendChild(div);
+      });
+
+      // Render Process
+      const processGrid = document.getElementById('process-grid');
+      svc.process.forEach(p => {
+        const div = document.createElement('div');
+        div.className = "bg-white p-6 rounded-2xl shadow-sm border border-gray-50 flex flex-col relative group hover:-translate-y-1 transition-all";
+        div.innerHTML = `
+          <span class="font-nunito font-black text-4xl text-gray-100 group-hover:text-primary/10 transition-colors mb-3">${p.step}</span>
+          <h6 class="font-nunito font-extrabold text-dark text-[15px] mb-2">${p.name}</h6>
+          <p class="text-body text-[13px] leading-relaxed">${p.desc}</p>
+        `;
+        processGrid.appendChild(div);
+      });
+
+      // Render FAQs
+      const faqAccordion = document.getElementById('faq-accordion');
+      svc.faq.forEach((faq, index) => {
+        const div = document.createElement('div');
+        div.className = "faq-item border border-gray-100 rounded-xl overflow-hidden";
+        div.innerHTML = `
+          <button class="w-full text-left py-4 px-5 font-nunito font-extrabold text-[15px] text-dark flex items-center justify-between bg-gray-50 hover:bg-[#f6f5fa] transition-colors" onclick="toggleFaqPanel(${index})">
+            <span>${faq.q}</span>
+            <i class="fas fa-chevron-down text-body text-xs transition-transform duration-300 faq-icon"></i>
+          </button>
+          <div class="faq-panel hidden py-4 px-5 border-t border-gray-100 text-body text-sm bg-white">
+            <p>${faq.a}</p>
+          </div>
+        `;
+        faqAccordion.appendChild(div);
+      });
+
+      // Update CTA
+      if (svc.isTravel) {
+        document.getElementById('cta-heading').textContent = "Ready to Plan Your Next Trip?";
+        document.getElementById('cta-desc').textContent = "Contact our travel experts today and get a personalized travel plan within 24 hours.";
+        document.getElementById('cta-btn').textContent = "Plan My Trip ↗";
+        document.getElementById('cta-btn').setAttribute("href", "contact.html");
+      } else {
+        document.getElementById('cta-heading').textContent = `Ready to scale with our ${svc.category} services?`;
+        document.getElementById('cta-desc').textContent = "Get a free custom proposal and roadmap designed specifically for your brand.";
+        document.getElementById('cta-btn').textContent = "Get Started Now ↗";
+      }
+
+      // Initialize Particle Canvas
+      (function(){
+        const cv = document.getElementById('svc-canvas');
+        const ctx = cv.getContext('2d');
+        let W, H, balls = [];
+        
+        function resize(){ 
+          W = cv.width = cv.parentElement.offsetWidth; 
+          H = cv.height = cv.parentElement.offsetHeight; 
+        }
+        
+        function rn(a,b){ return Math.random()*(b-a)+a; }
+        function mkBall(){ 
+          return { x:rn(0,W), y:rn(0,H), vx:rn(-.45,.45), vy:rn(-.45,.45), phase:rn(0,10) }; 
+        }
+        
+        function draw(){
+          ctx.clearRect(0,0,W,H);
+          balls.forEach(function(b){
+            b.x+=b.vx; b.y+=b.vy; b.phase+=.014;
+            if(b.x<0||b.x>W) b.vx*=-1;
+            if(b.y<0||b.y>H) b.vy*=-1;
+            let a = .25+Math.abs(Math.sin(b.phase))*.45;
+            ctx.beginPath(); ctx.arc(b.x,b.y,5,0,Math.PI*2);
+            ctx.fillStyle = svc.isTravel ? `rgba(167,218,255,${a})` : `rgba(167,139,250,${a})`;
+            ctx.fill();
+          });
+          for(let i=0;i<balls.length;i++){
+            for(let j=i+1;j<balls.length;j++){
+              let dx=balls[i].x-balls[j].x, dy=balls[i].y-balls[j].y, d=Math.sqrt(dx*dx+dy*dy);
+              if(d<200){
+                ctx.beginPath(); ctx.moveTo(balls[i].x,balls[i].y); ctx.lineTo(balls[j].x,balls[j].y);
+                ctx.strokeStyle = svc.isTravel ? `rgba(59,130,246,${(1-d/200)*.2})` : `rgba(98,84,231,${(1-d/200)*.2})`;
+                ctx.lineWidth=.8; ctx.stroke();
+              }
+            }
+          }
+          requestAnimationFrame(draw);
+        }
+        window.addEventListener('resize', resize);
+        resize();
+        for(let i=0;i<28;i++) balls.push(mkBall());
+        draw();
+      })();
+
+    })();
+  </script>
+</body>
+</html>
